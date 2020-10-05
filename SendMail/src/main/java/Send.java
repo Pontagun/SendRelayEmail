@@ -17,22 +17,21 @@ public class Send {
         String coursename = "SMTP 101";
 
 
-        final String username = "pontagun@gmail.com";//change accordingly
-        final String password = "cwTjxtp4g1bIMSWV";//change accordingly
-
-        String host = "smtp-relay.sendinblue.com";
+        String host = "202.28.249.12";
         Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "false");
+        props.put("mail.smtp.starttls.enable", "false");
         props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.port", "25");
 
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+        Session session = Session.getInstance(props);
+//                ,
+//                new javax.mail.Authenticator() {
+//                    protected PasswordAuthentication
+//                    getPasswordAuthentication() {
+//                        return new PasswordAuthentication(username, password);
+//                    }
+//                });
 
         try {
             Message message = new MimeMessage(session);
